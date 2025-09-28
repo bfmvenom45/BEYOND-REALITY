@@ -38,10 +38,10 @@ A cinematic, futuristic web experience that transcends boundaries and embraces t
 
 ```bash
 # Clone the repository
-git clone https://github.com/bfmvenom45/BEYOND-REALITY.git
+git clone https://github.com/bfmvenom45/pixel-universe-lab.git
 
 # Navigate to project
-cd BEYOND-REALITY
+cd pixel-universe-lab
 
 # Install dependencies
 npm install
