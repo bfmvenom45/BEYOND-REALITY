@@ -94,7 +94,7 @@ const Footer = () => {
             <div className="footer-divider"></div>
             <div className="bottom-content">
               <p className="copyright">
-                © 2024 Bushko Digital Lab. Transcending boundaries, creating infinite possibilities.
+                © 2025 Bushko Digital Lab. Transcending boundaries, creating infinite possibilities.
               </p>
               <div className="social-links">
                 <div className="social-item">
