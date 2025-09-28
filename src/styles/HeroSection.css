@@ -8,6 +8,16 @@
   perspective: 1000px;
 }
 
+/* Мобільні виправлення для hero */
+@media (max-width: 768px) {
+  .hero {
+    height: 100vh;
+    min-height: 100vh;
+    overflow: visible;
+    position: relative;
+  }
+}
+
 .hero-content {
   text-align: center;
   z-index: 2;

@@ -6,6 +6,8 @@
 
 html {
   scroll-behavior: smooth;
+  height: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -15,16 +17,34 @@ body {
   background: linear-gradient(135deg, #000000 0%, #0a0a0a 50%, #1a1a2e 100%);
   background-attachment: fixed;
   overflow-x: hidden;
+  overflow-y: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-overflow-scrolling: touch;
+  min-height: 100vh;
+  position: relative;
 }
 
 /* Мобільні оптимізації */
 @media (max-width: 768px) {
+  html {
+    scroll-behavior: auto; /* Вимикаємо smooth scroll на мобільних */
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+  
   body {
     background-attachment: scroll;
-    background: #0a0a0a; /* Простий фон для мобільних */
+    background: #0a0a0a;
+    overflow-y: scroll !important;
+    height: auto !important;
+    min-height: 100vh;
+    position: static !important;
+  }
+  
+  #root {
+    overflow-y: visible !important;
+    min-height: 100vh;
   }
   
   /* Оптимізація частинок для мобільних */
