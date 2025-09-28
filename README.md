@@ -17,7 +17,7 @@ A cinematic, futuristic web experience that transcends boundaries and embraces t
 
 ## 🚀 Live Demo
 
-🌐 **[View Live Site](https://pixel-universe-lab.vercel.app)**
+🌐 **[View Live Site](https://pixel-universe.vercel.app)**
 
 ## 🛠️ Technologies
 
