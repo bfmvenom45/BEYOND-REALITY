@@ -1,0 +1,215 @@
+.cube-container {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  margin: 0 auto;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.cube {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 25px auto;
+  transform-style: preserve-3d;
+  transform: rotateX(-15deg) rotateY(15deg);
+}
+
+.cube-face {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border: 2px solid #00ffff;
+  background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(255, 107, 107, 0.1));
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Orbitron', monospace;
+  
+  /* Holographic effect */
+  box-shadow: 
+    0 0 20px rgba(0, 255, 255, 0.3),
+    inset 0 0 20px rgba(0, 255, 255, 0.1);
+    
+  /* Animation */
+  transition: all 0.3s ease;
+}
+
+.cube-face:hover {
+  background: linear-gradient(135deg, rgba(0, 255, 255, 0.2), rgba(255, 107, 107, 0.2));
+  box-shadow: 
+    0 0 30px rgba(0, 255, 255, 0.5),
+    inset 0 0 30px rgba(0, 255, 255, 0.2);
+}
+
+/* Face positioning */
+.cube-face.front {
+  transform: translateZ(100px);
+}
+
+.cube-face.back {
+  transform: rotateY(180deg) translateZ(100px);
+}
+
+.cube-face.right {
+  transform: rotateY(90deg) translateZ(100px);
+}
+
+.cube-face.left {
+  transform: rotateY(-90deg) translateZ(100px);
+}
+
+.cube-face.top {
+  transform: rotateX(90deg) translateZ(100px);
+}
+
+.cube-face.bottom {
+  transform: rotateX(-90deg) translateZ(100px);
+}
+
+/* Face content */
+.face-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.tech-icon {
+  font-size: 3rem;
+  filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.6));
+  animation: iconFloat 2s ease-in-out infinite alternate;
+}
+
+.tech-label {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #00ffff;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* Holographic rings */
+.holographic-ring {
+  position: absolute;
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  border-radius: 50%;
+  animation: ringPulse 3s ease-in-out infinite;
+}
+
+.holographic-ring.ring-1 {
+  width: 280px;
+  height: 280px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-delay: 0s;
+}
+
+.holographic-ring.ring-2 {
+  width: 320px;
+  height: 320px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-delay: 1s;
+}
+
+.holographic-ring.ring-3 {
+  width: 360px;
+  height: 360px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-delay: 2s;
+}
+
+/* Animations */
+@keyframes iconFloat {
+  from {
+    transform: translateY(-5px);
+  }
+  to {
+    transform: translateY(5px);
+  }
+}
+
+@keyframes ringPulse {
+  0%, 100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .cube-container {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .cube {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .cube-face {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .cube-face.front,
+  .cube-face.back {
+    transform: translateZ(75px);
+  }
+  
+  .cube-face.right {
+    transform: rotateY(90deg) translateZ(75px);
+  }
+  
+  .cube-face.left {
+    transform: rotateY(-90deg) translateZ(75px);
+  }
+  
+  .cube-face.top {
+    transform: rotateX(90deg) translateZ(75px);
+  }
+  
+  .cube-face.bottom {
+    transform: rotateX(-90deg) translateZ(75px);
+  }
+  
+  .tech-icon {
+    font-size: 2rem;
+  }
+  
+  .tech-label {
+    font-size: 1rem;
+  }
+}
+
+/* Additional glow effects */
+.cube-container::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(0, 255, 255, 0.1) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.cube-container:hover::before {
+  background: radial-gradient(circle, rgba(0, 255, 255, 0.2) 0%, transparent 70%);
+}

@@ -1,0 +1,140 @@
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.background-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  filter: brightness(0.4) contrast(1.2) saturate(0.8);
+  transition: all 0.3s ease;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(26, 26, 46, 0.6) 30%,
+    rgba(99, 102, 241, 0.2) 60%,
+    rgba(168, 85, 247, 0.3) 100%
+  );
+  z-index: 2;
+}
+
+.cinematic-bars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.bar {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.9) 50%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+}
+
+.bar-top {
+  top: 0;
+  height: 80px;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.95) 0%,
+    rgba(0, 0, 0, 0.7) 70%,
+    transparent 100%
+  );
+}
+
+.bar-bottom {
+  bottom: 0;
+  height: 80px;
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.95) 0%,
+    rgba(0, 0, 0, 0.7) 70%,
+    transparent 100%
+  );
+}
+
+/* Enhance video quality on hover */
+.video-background:hover .background-video {
+  filter: brightness(0.5) contrast(1.3) saturate(1.0);
+  transform: translate(-50%, -50%) scale(1.02);
+}
+
+/* Add subtle animation */
+@keyframes videoFloat {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.01);
+  }
+}
+
+.background-video {
+  animation: videoFloat 20s ease-in-out infinite;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .bar-top,
+  .bar-bottom {
+    height: 60px;
+  }
+  
+  .background-video {
+    filter: brightness(0.3) contrast(1.1) saturate(0.7);
+  }
+}
+
+/* Ensure video covers properly on all aspect ratios */
+@media (aspect-ratio: 21/9) {
+  .background-video {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (aspect-ratio: 4/3) {
+  .background-video {
+    width: auto;
+    height: 100%;
+  }
+}
+
+/* Performance optimization */
+.video-background {
+  will-change: transform;
+}
+
+.background-video {
+  will-change: transform, filter;
+}

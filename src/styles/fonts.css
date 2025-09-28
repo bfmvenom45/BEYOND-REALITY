@@ -1,0 +1,40 @@
+/* @import должен быть в самом начале файла */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&display=swap');
+
+/* Authentic Wakanda Forever Fonts */
+
+/* Fallback для Modern Wakandan font - используем стилизованный шрифт */
+@font-face {
+  font-family: 'Modern Wakandan';
+  src: local('Orbitron'), local('Exo'), local('Rajdhani');
+  font-weight: 700;
+  font-display: swap;
+}
+
+/* Font utility classes */
+.font-wakandan {
+  font-family: 'Modern Wakandan', 'Orbitron', monospace;
+  font-weight: 700;
+  letter-spacing: 0.8em;
+  color: var(--primary-green);
+  text-transform: uppercase;
+  font-size: 0.5rem;
+  line-height: 0.5em;
+  height: 0.5em;
+  text-shadow: 
+    0 0 var(--shadow-width-1) var(--shadow-color-1),
+    0 0 var(--shadow-width-2) var(--shadow-color-2);
+}
+
+.font-gill {
+  font-family: 'Gill Sans', Helvetica, Arial, sans-serif;
+}
+
+.font-domaine {
+  font-family: 'Domaine', 'Times New Roman', Georgia, serif;
+}
+
+.font-gilroy {
+  font-family: 'Inter', Helvetica, Arial, sans-serif;
+}
