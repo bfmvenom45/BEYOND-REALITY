@@ -1,8 +1,8 @@
-# 🌌 BEYOND REALITY
+# � PIXEL UNIVERSE LAB
 
 A cinematic, futuristic web experience that transcends boundaries and embraces the infinite possibilities of tomorrow. Built with cutting-edge technologies and stunning visual effects.
 
-![BEYOND REALITY Preview](https://via.placeholder.com/1200x600/0a0a0a/00f5ff?text=BEYOND+REALITY)
+![PIXEL UNIVERSE LAB Preview](https://via.placeholder.com/1200x600/0a0a0a/00f5ff?text=PIXEL+UNIVERSE+LAB)
 
 ## ✨ Experience
 
@@ -17,7 +17,7 @@ A cinematic, futuristic web experience that transcends boundaries and embraces t
 
 ## 🚀 Live Demo
 
-🌐 **[View Live Site](https://beyond-reality-digital.vercel.app)**
+🌐 **[View Live Site](https://pixel-universe-lab.vercel.app)**
 
 ## 🛠️ Technologies
 
