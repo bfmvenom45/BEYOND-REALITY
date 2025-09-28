@@ -117,7 +117,11 @@ const ParticleCanvas = () => {
     // Initialize particles
     const initParticles = () => {
       particlesRef.current = []
-      for (let i = 0; i < 100; i++) {
+      // Менше частинок на мобільних для кращої продуктивності
+      const isMobile = window.innerWidth < 768
+      const particleCount = isMobile ? 30 : 80 // Зменшено з 100
+      
+      for (let i = 0; i < particleCount; i++) {
         particlesRef.current.push(new Particle())
       }
     }
@@ -132,8 +136,11 @@ const ParticleCanvas = () => {
         particle.draw(ctx)
       })
 
-      // Draw connections
-      drawConnections(particlesRef.current, ctx)
+      // Draw connections only on desktop for performance
+      const isMobile = window.innerWidth < 768
+      if (!isMobile) {
+        drawConnections(particlesRef.current, ctx)
+      }
 
       animationRef.current = requestAnimationFrame(animate)
     }
@@ -144,6 +151,15 @@ const ParticleCanvas = () => {
       mouseRef.current.y = e.clientY
     }
 
+    // Touch move handler for mobile
+    const handleTouchMove = (e) => {
+      e.preventDefault()
+      if (e.touches.length > 0) {
+        mouseRef.current.x = e.touches[0].clientX
+        mouseRef.current.y = e.touches[0].clientY
+      }
+    }
+
     // Resize handler
     const handleResize = () => {
       setCanvasSize()
@@ -152,6 +168,7 @@ const ParticleCanvas = () => {
 
     // Event listeners
     window.addEventListener('mousemove', handleMouseMove)
+    window.addEventListener('touchmove', handleTouchMove, { passive: false })
     window.addEventListener('resize', handleResize)
 
     initParticles()
@@ -159,6 +176,7 @@ const ParticleCanvas = () => {
 
     return () => {
       window.removeEventListener('mousemove', handleMouseMove)
+      window.removeEventListener('touchmove', handleTouchMove)
       window.removeEventListener('resize', handleResize)
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current)

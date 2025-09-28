@@ -429,32 +429,93 @@
 
 @media (max-width: 768px) {
   .about-section {
-    padding: 6rem 0;
+    padding: 4rem 1rem;
+    min-height: auto;
+  }
+  
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 8vw, 2.8rem);
+    margin-bottom: 1rem;
+  }
+  
+  .section-description {
+    font-size: 1rem;
+    margin-bottom: 2rem;
   }
 
   .stats-container {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .stat-item {
+    padding: 1rem 0.5rem;
+  }
+  
+  .stat-number {
+    font-size: 1.5rem;
   }
 
   .holographic-display {
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 250px;
+    margin: 0 auto;
   }
 
   .ring-1 {
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
   }
 
   .ring-2 {
-    width: 140px;
-    height: 140px;
+    width: 120px;
+    height: 120px;
   }
 
   .ring-3 {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
+  }
+  
+  .energy-core {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .core-inner {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .interface-dots {
+    gap: 0.8rem;
+    margin-top: 2rem;
+  }
+  
+  .dot {
+    width: 12px;
+    height: 12px;
+  }
+  
+  .dot-tooltip {
+    font-size: 0.7rem;
+    padding: 4px 8px;
+  }
+  
+  /* Спрощення анімацій для кращої продуктивності */
+  .data-stream {
+    opacity: 0.5;
+  }
+  
+  .bg-particles {
+    display: none; /* Приховуємо для кращої продуктивності */
   }
 }
 

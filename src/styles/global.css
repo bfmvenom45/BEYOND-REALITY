@@ -17,6 +17,44 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Мобільні оптимізації */
+@media (max-width: 768px) {
+  body {
+    background-attachment: scroll;
+    background: #0a0a0a; /* Простий фон для мобільних */
+  }
+  
+  /* Оптимізація частинок для мобільних */
+  .particle-canvas {
+    opacity: 0.3 !important;
+    transform: scale(0.8);
+  }
+  
+  /* Вимкнення складних анімацій */
+  .holo-ring, .data-point {
+    animation: none !important;
+  }
+  
+  /* Швидші переходи */
+  * {
+    transition-duration: 0.2s !important;
+  }
+}
+
+/* Вимкнення анімацій для слабких пристроїв */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .particle-canvas {
+    display: none !important;
+  }
 }
 
 /* Enhanced typography with Orbitron for headings */

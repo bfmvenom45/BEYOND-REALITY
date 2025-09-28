@@ -425,30 +425,45 @@
 }
 
 @media (max-width: 768px) {
+  .main-content {
+    padding: 0 1rem;
+  }
+  
   .tech-section {
-    padding: 6rem 0;
+    padding: 4rem 0;
   }
   
   .tech-grid {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1.5rem;
+    max-width: 400px;
+    margin: 0 auto;
   }
   
   .tech-card {
     padding: 2rem 1.5rem;
+    transform: none; /* Прибираємо hover трансформації для touch */
+  }
+  
+  .tech-card:hover {
+    transform: none; /* Фіксуємо блимання на touch */
   }
   
   .card-icon {
-    font-size: 3rem;
-    margin-bottom: 1.5rem;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
   }
   
   .section-title {
     margin-bottom: 1rem;
+    font-size: clamp(2rem, 6vw, 2.5rem);
+    text-align: center;
   }
   
   .section-subtitle {
     margin-bottom: 3rem;
+    text-align: center;
+    font-size: 1rem;
   }
 }
 

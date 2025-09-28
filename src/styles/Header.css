@@ -68,7 +68,29 @@
 }
 
 @media (max-width: 768px) {
+  .header {
+    padding: 0 1rem;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  
+  .nav-container {
+    padding: 1rem 0;
+  }
+  
+  .logo {
+    font-size: 1.2rem;
+  }
+  
   .nav-links {
     display: none;
+  }
+  
+  /* Додаємо safe area для нових iPhone */
+  @supports (padding: max(0px)) {
+    .header {
+      padding-left: max(1rem, env(safe-area-inset-left));
+      padding-right: max(1rem, env(safe-area-inset-right));
+    }
   }
 }

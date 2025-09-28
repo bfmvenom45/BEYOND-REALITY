@@ -21,7 +21,7 @@
 }
 
 .hero-title {
-  font-size: clamp(4rem, 10vw, 12rem);
+  font-size: clamp(2.5rem, 8vw, 12rem);
   font-weight: 900;
   letter-spacing: 0.05em;
   line-height: 0.9;
@@ -418,21 +418,57 @@
 }
 
 @media (max-width: 768px) {
+  .hero {
+    padding: 2rem 1rem;
+    min-height: 100vh;
+    height: auto;
+  }
+  
+  .hero-content {
+    max-width: 100%;
+    padding: 1rem;
+  }
+  
+  .hero-title {
+    font-size: clamp(2.5rem, 10vw, 4rem);
+    margin-bottom: 1rem;
+  }
+  
+  .hero-subtitle {
+    font-size: clamp(1rem, 4vw, 1.4rem);
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+  }
+  
   .hero-actions {
     flex-direction: column;
     gap: 1rem;
+    margin-top: 2rem;
   }
   
   .cta-button {
     width: 100%;
-    max-width: 250px;
-  }
-  
-  .title-word {
-    font-size: clamp(2.5rem, 12vw, 4rem);
+    max-width: 280px;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
   }
   
   .scroll-indicator {
     bottom: 1rem;
+    scale: 0.8;
+  }
+  
+  /* Вимкнення складних анімацій на мобільних */
+  .animated-background {
+    animation: none;
+    opacity: 0.3;
+  }
+  
+  .noise-texture {
+    display: none; /* Приховуємо на мобільних для продуктивності */
+  }
+  
+  .title-word::before {
+    display: none; /* Приховуємо тінь тексту */
   }
 }
